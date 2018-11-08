@@ -9,15 +9,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SimpleTest {
 
-    private final String appid = "06b495773e3844b006d8be941b7cfc24";
-    private final String endpoint = "/data/2.5/weather";
+    private static final String APPID = "06b495773e3844b006d8be941b7cfc24";
+    private static final String ENDPOINT = "/data/2.5/weather";
 
     @Test
     public void test() {
         WeatherEntity entity = given().spec(RegSpec.getOpenWheatherMapSpec())
-                .basePath(endpoint)
+                .basePath(ENDPOINT)
                 .queryParam("q", "Kiev")
-                .queryParam("appid", appid)
+                .queryParam("appid", APPID)
                 .queryParam("lang", "en")
                 .queryParam("units", "metric")
                 .when().get()
